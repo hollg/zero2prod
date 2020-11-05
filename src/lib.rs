@@ -16,8 +16,6 @@ async fn subscribe(_form: web::Form<FormData>) -> HttpResponse {
     HttpResponse::Ok().finish()
 }
 
-// Notice the different signature!
-// We return `Server` on the happy path and we dropped the `async` keyword // We have no .await call, so it is not needed anymore.
 pub fn run(listener: TcpListener) -> Result<Server, std::io::Error> {
     let server = HttpServer::new(|| {
         App::new()
@@ -26,6 +24,6 @@ pub fn run(listener: TcpListener) -> Result<Server, std::io::Error> {
     })
     .listen(listener)?
     .run();
-    // No .await here!
+
     Ok(server)
 }
