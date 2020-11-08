@@ -33,7 +33,8 @@ WORKDIR app
 # Install OpenSSL - it is dynamically linked by some of our dependencies 
 RUN apt-get update -y \
     && apt-get install -y --no-install-recommends openssl \
-    # Clean up && apt-get autoremove -y
+    # Clean up 
+    && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* 
 
