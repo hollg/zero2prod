@@ -8,7 +8,7 @@ version = "0.1.0"
 path = "src/lib.rs"
 
 [[bin]]
-name = "app"
+name = "zero2prod"
 path = "src/main.rs"
 
 [dependencies]
@@ -18,17 +18,17 @@ chrono = "0.4.15"
 config = "0.10.1"
 serde = {version = "1", features = ["derive"]}
 tracing = "0.1.21"
+tracing-actix-web = "0.2.1"
 tracing-bunyan-formatter = "0.1.6"
 tracing-futures = "0.2.4"
 tracing-log = "0.1.1"
 tracing-subscriber = {version = "0.2.12", features = ["registry", "env-filter"]}
 uuid = {version = "0.8.1", features = ["v4"]}
-tracing-actix-web = "0.2.1"
 
 # We are using TOML table syntax to avoid a super-long line [dependencies.sqlx]
 [dependencies.sqlx]
 default-features = false
-features = ["runtime-tokio", "macros", "postgres", "uuid", "chrono", "migrate"]
+features = ["runtime-tokio", "macros", "postgres", "uuid", "chrono", "migrate", "offline"]
 version = "0.4.0-beta.1"
 
 [dev-dependencies]
