@@ -1,9 +1,6 @@
 FROM rust:1.47 AS planner
 WORKDIR app
-# We only pay the installation cost once,
-# it will be cached from the second build onwards
-# To ensure a reproducible build consider pinning
-# the cargo-chef version with `--version X.X.X`
+
 RUN cargo install cargo-chef
 COPY . .
 # Compute a lock-like file for our project
